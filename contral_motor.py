@@ -11,9 +11,8 @@ def get_duty(direction):
      return duty
 if __name__=='__main__':
     try:
+        pwm.start(0)
         while True:
-            pwm.start(0)
-            time.sleep(1)
             direction = float(input("请输入一个1～180之间的角度"))
             duty = get_duty(direction)
             pwm.ChangeDutyCycle(duty)
