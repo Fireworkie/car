@@ -9,7 +9,7 @@ import org.springframework.web.servlet.ModelAndView;
 public class MainController {
     @ResponseBody
     @RequestMapping("/")
-    public ModelAndView hello(){
+    public ModelAndView hello() {
         return new ModelAndView("index");
     }
 }

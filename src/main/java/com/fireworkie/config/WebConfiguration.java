@@ -17,7 +17,7 @@ import org.thymeleaf.templateresolver.ITemplateResolver;
 @Configuration
 public class WebConfiguration implements WebMvcConfigurer {
     @Bean
-    public ThymeleafViewResolver thymeleafViewResolver(SpringTemplateEngine springTemplateEngine){
+    public ThymeleafViewResolver thymeleafViewResolver(SpringTemplateEngine springTemplateEngine) {
         ThymeleafViewResolver resolver = new ThymeleafViewResolver();
         resolver.setOrder(1);   //可以存在多个视图解析器，并且可以为他们设定解析顺序
         resolver.setCharacterEncoding("UTF-8");   //编码格式是重中之重
@@ -27,7 +27,7 @@ public class WebConfiguration implements WebMvcConfigurer {
 
     //配置模板解析器
     @Bean
-    public SpringResourceTemplateResolver templateResolver(){
+    public SpringResourceTemplateResolver templateResolver() {
         SpringResourceTemplateResolver resolver = new SpringResourceTemplateResolver();
         resolver.setSuffix(".html");   //需要解析的后缀名称
         resolver.setPrefix("classpath:");   //需要解析的HTML页面文件存放的位置，默认是webapp目录下，如果是类路径下需要添加classpath:前缀
@@ -36,11 +36,12 @@ public class WebConfiguration implements WebMvcConfigurer {
 
     //配置模板引擎Bean
     @Bean
-    public SpringTemplateEngine springTemplateEngine(ITemplateResolver resolver){
+    public SpringTemplateEngine springTemplateEngine(ITemplateResolver resolver) {
         SpringTemplateEngine engine = new SpringTemplateEngine();
         engine.setTemplateResolver(resolver);   //模板解析器，默认即可
         return engine;
     }
+
     @Override
     public void configureDefaultServletHandling(DefaultServletHandlerConfigurer configurer) {
         configurer.enable();   //开启默认的Servlet
