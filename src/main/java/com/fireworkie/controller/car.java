@@ -3,16 +3,22 @@ package com.fireworkie.controller;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
 public class car {
-
-    @RequestMapping(value = "/executePython", method = RequestMethod.GET)
-    @ResponseBody
-    public String executePythonProgram() {
-        // 在此处执行 Python 程序
+//    int num=0;
+    @RequestMapping(value = "/runningcar", method = RequestMethod.GET)
+    public void RunningCar(@RequestParam("buttonid") String buttonid) {
+        // 给python传代号
         // ...
-        return "小车动了";
+//        num++;
+        System.out.println(buttonid+"被按下");
     }
+
+    @RequestMapping(value ="/stopcar",method = RequestMethod.GET)
+    public void StopCar(){
+        System.out.println("按钮松开");
+    };
 }

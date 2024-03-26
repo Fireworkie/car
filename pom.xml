@@ -6,7 +6,7 @@
 
   <groupId>com.fireworkie</groupId>
   <artifactId>car</artifactId>
-  <version>1.0-SNAPSHOT</version>
+  <version>alpha</version>
   <name>car</name>
   <packaging>war</packaging>
 
