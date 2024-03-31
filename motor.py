@@ -1,6 +1,9 @@
 import RPi.GPIO as GPIO
 import time
+import json
+import socket
 
+cmd="stop"
 class MotorDriver():
     def __init__(self, duty = 70, ENA = 33, IN1 = 35, IN2 = 37, ENB = 11, IN3 = 13, IN4 = 15, ENC = 22, IN5 = 24, IN6 = 26, END = 36, IN7 = 38, IN8 = 40):
 
@@ -98,42 +101,100 @@ class MotorDriver():
             GPIO.output(self.IN6, 0)
             GPIO.output(self.IN7, 0)
             GPIO.output(self.IN8, 0)
-    def up(self):
-        if self.duty <= 200:
-            self.duty += 10
-            self.pwm1.ChangeDutyCycle(self.duty)
-            self.pwm2.ChangeDutyCycle(self.duty)
-            self.pwm3.ChangeDutyCycle(self.duty)
-            self.pwm4.ChangeDutyCycle(self.duty)
-        else:
-                print('get max')
-    def down(self):
-        if self.duty >= 0:
-            self.duty -= 10
-            self.pwm1.ChangeDutyCycle(self.duty)
-            self.pwm2.ChangeDutyCycle(self.duty)
-            self.pwm3.ChangeDutyCycle(self.duty)
-            self.pwm4.ChangeDutyCycle(self.duty)
-        else:
-            print('get min')
+    def turn_left(self):
+    def turn_right(self):
+    def backleft(self):
+    def backright(self):
+    # def up(self):
+    #     if self.duty <= 200:
+    #         self.duty += 10
+    #         self.pwm1.ChangeDutyCycle(self.duty)
+    #         self.pwm2.ChangeDutyCycle(self.duty)
+    #         self.pwm3.ChangeDutyCycle(self.duty)
+    #         self.pwm4.ChangeDutyCycle(self.duty)
+    #     else:
+    #             print('get max')
+    # def down(self):
+    #     if self.duty >= 0:
+    #         self.duty -= 10
+    #         self.pwm1.ChangeDutyCycle(self.duty)
+    #         self.pwm2.ChangeDutyCycle(self.duty)
+    #         self.pwm3.ChangeDutyCycle(self.duty)
+    #         self.pwm4.ChangeDutyCycle(self.duty)
+    #     else:
+    #         print('get min')
+
+def handle_client(client_socket):
+    try:
+        # 接收JSON数据
+        json_data = client_socket.recv(1024).decode()
+        # print("接收到的JSON数据:", json_data)
+
+        # 解析JSON数据
+        parsed_data = json.loads(json_data)
+
+        # 获取command字段的值
+        cmd = parsed_data.get('command')
+    except Exception as e:
+        print("处理客户端数据时出现错误:", e)
+    finally:
+        # 关闭客户端连接
+        client_socket.close()
+
+def start_server():
+    # 创建Socket对象
+    server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+
+    try:
+        # 绑定IP地址和端口号
+        server_address = ('localhost', 8001)
+        server_socket.bind(server_address)
+
+        # 监听连接
+        server_socket.listen(1)
+        # print("服务器已启动，等待客户端连接...")
+
+        while True:
+            # 接受连接
+            client_socket, client_address = server_socket.accept()
+            print("客户端已连接:", client_address)
+
+            # 处理客户端数据
+            handle_client(client_socket)
+
+    except Exception as e:
+        print("服务器运行时出现错误:", e)
+    finally:
+        # 关闭服务器
+        server_socket.close()
+
+
 if __name__ == "__main__":
     motor = MotorDriver()
     try:
         while True:
-            cmd = input("输入w(forward) or s(back) or a(left) or d(right) or q(up) or z(down)or x(stop): ")
-            if cmd == "w":
+            start_server()
+            if cmd == "forward":
                 motor.forward()
-            if cmd == "s":
+            if cmd == "backward":
                 motor.back()
-            if cmd == "a":
+            if cmd == "left":
                 motor.left()
-            if cmd == "d":
+            if cmd == "right":
                 motor.right()
-            if cmd == "x":
+            if cmd == "stop":
                 motor.stop()
-            if cmd == "q":
-                motor.up()
-            if cmd == "z":
-                motor.down()
+            if cmd == "turn_left":
+                motor.turn_left()
+            if cmd == "turn_right":
+                motor.turn_right()
+            if cmd == "back_left":
+                motor.backleft()
+            if cmd == "back_right":
+                motor.backright()
+            # if cmd == "q":
+            #     motor.up()
+            # if cmd == "z":
+            #     motor.down()
     except KeyboardInterrupt: #用户输入中断键（Ctrl + C），退出
         GPIO.cleanup()
