@@ -10,16 +10,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fead5cd9-8311-4a4e-9901-ff0a5dcd06fb" name="更改" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/fireworkie/service/CarMoving.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/fireworkie/service/impl/CarMovingImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/bg.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/car.jsd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/title.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/fireworkie/controller/car.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fireworkie/controller/car.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/motor.py" beforeDir="false" afterPath="$PROJECT_DIR$/motor.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/button.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/contral_motor.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/control_motor2.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/dht11.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/dianziluopan.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/hc_sr04.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/motor.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/button_new.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/button_new.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,8 +29,11 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="JavaScript File" />
+        <option value="Class" />
+        <option value="Interface" />
+        <option value="CSS File" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -58,6 +61,7 @@
   </component>
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
     &quot;Maven.car [clean].executor&quot;: &quot;Run&quot;,
     &quot;Maven.car [package].executor&quot;: &quot;Run&quot;,
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
@@ -65,7 +69,8 @@
     &quot;Tomcat 服务器.Tomcat 10.1.19.executor&quot;: &quot;Run&quot;,
     &quot;git-widget-placeholder&quot;: &quot;master&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/Desktop/code/car/src/main/java/com/fireworkie/controller&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/Desktop/code/car/src/main/resources/static&quot;,
+    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -80,6 +85,7 @@
 }</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Desktop\code\car\src\main\resources\static" />
       <recent name="D:\Desktop\code\car\src\main\java\com\fireworkie\controller" />
       <recent name="D:\Desktop\code\car\src\main\resources" />
     </key>
@@ -205,7 +211,13 @@
       <workItem from="1711628768675" duration="3950000" />
       <workItem from="1711690200177" duration="259000" />
       <workItem from="1711690474657" duration="10488000" />
-      <workItem from="1711887811185" duration="1154000" />
+      <workItem from="1711887811185" duration="1322000" />
+      <workItem from="1711889231128" duration="8000" />
+      <workItem from="1711889326007" duration="3035000" />
+      <workItem from="1711893443260" duration="373000" />
+      <workItem from="1711937825348" duration="2406000" />
+      <workItem from="1711941437384" duration="933000" />
+      <workItem from="1711949826647" duration="14000" />
     </task>
     <servers />
   </component>

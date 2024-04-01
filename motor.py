@@ -106,7 +106,7 @@ class MotorDriver():
     def backleft(self):
     def backright(self):
     # def up(self):
-    #     if self.duty <= 200:
+    #     if self.duty <= 100:
     #         self.duty += 10
     #         self.pwm1.ChangeDutyCycle(self.duty)
     #         self.pwm2.ChangeDutyCycle(self.duty)
