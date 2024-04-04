@@ -1,0 +1,6 @@
+03-Apr-2024 17:30:34.304 信息 [main] org.apache.catalina.core.ApplicationContext.log 1 Spring WebApplicationInitializers detected on classpath
+03-Apr-2024 17:30:34.518 信息 [main] org.apache.catalina.core.ApplicationContext.log Initializing Spring root WebApplicationContext
+03-Apr-2024 17:30:37.678 信息 [main] org.apache.catalina.core.ApplicationContext.log Initializing Spring DispatcherServlet 'dispatcher'
+03-Apr-2024 17:30:39.061 信息 [main] org.apache.catalina.core.ApplicationContext.log ContextListener: contextInitialized()
+03-Apr-2024 17:30:39.062 信息 [main] org.apache.catalina.core.ApplicationContext.log SessionListener: contextInitialized()
+03-Apr-2024 17:30:39.070 信息 [main] org.apache.catalina.core.ApplicationContext.log ContextListener: attributeAdded('StockTicker', 'async.Stockticker@e67d3b7')

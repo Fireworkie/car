@@ -1,9 +1,6 @@
 import RPi.GPIO as GPIO
 import time
-import json
-import socket
 
-cmd="stop"
 class MotorDriver():
     def __init__(self, duty = 70, ENA = 33, IN1 = 35, IN2 = 37, ENB = 11, IN3 = 13, IN4 = 15, ENC = 22, IN5 = 24, IN6 = 26, END = 36, IN7 = 38, IN8 = 40):
 
@@ -119,81 +116,20 @@ class MotorDriver():
             self.pwm4.ChangeDutyCycle(self.duty)
         else:
             print('get min')
-
-def handle_client(client_socket):
-    try:
-        # 接收JSON数据
-        json_data = client_socket.recv(1024).decode()
-        # print("接收到的JSON数据:", json_data)
-
-        # 解析JSON数据
-        parsed_data = json.loads(json_data)
-
-        # 获取command字段的值
-        cmd = parsed_data.get('command')
-
-        # 根据command值执行相应的函数
-        # if command == 'forward':
-        #     move_forward()
-        # elif command == 'backward':
-        #     move_backward()
-        # elif command == 'left':
-        #     turn_left()
-        # elif command == 'right':
-        #     turn_right()
-        # else:
-        #     print("未知的命令")
-        # # response = command+"命令执行完成"
-        # # client_socket.send(response.encode())
-    except Exception as e:
-        print("处理客户端数据时出现错误:", e)
-    finally:
-        # 关闭客户端连接
-        client_socket.close()
-
-def start_server():
-    # 创建Socket对象
-    server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-
-    try:
-        # 绑定IP地址和端口号
-        server_address = ('localhost', 8001)
-        server_socket.bind(server_address)
-
-        # 监听连接
-        server_socket.listen(1)
-        print("服务器已启动，等待客户端连接...")
-
-        while True:
-            # 接受连接
-            client_socket, client_address = server_socket.accept()
-            print("客户端已连接:", client_address)
-
-            # 处理客户端数据
-            handle_client(client_socket)
-
-    except Exception as e:
-        print("服务器运行时出现错误:", e)
-    finally:
-        # 关闭服务器
-        server_socket.close()
-
-
 if __name__ == "__main__":
     motor = MotorDriver()
     try:
         while True:
-            # cmd="stop"
-            start_server()
-            if cmd == "forward":
+            cmd = input("输入w(forward) or s(back) or a(left) or d(right) or q(up) or z(down)or x(stop): ")
+            if cmd == "w":
                 motor.forward()
-            if cmd == "backward":
+            if cmd == "s":
                 motor.back()
-            if cmd == "left":
+            if cmd == "a":
                 motor.left()
-            if cmd == "right":
+            if cmd == "d":
                 motor.right()
-            if cmd == "stop":
+            if cmd == "x":
                 motor.stop()
             if cmd == "q":
                 motor.up()

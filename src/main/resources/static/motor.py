@@ -1,11 +1,11 @@
 import RPi.GPIO as GPIO
-import time
+# import time
 import json
 import socket
 
 cmd="stop"
 class MotorDriver():
-    def __init__(self, duty = 70, ENA = 33, IN1 = 35, IN2 = 37, ENB = 11, IN3 = 13, IN4 = 15, ENC = 22, IN5 = 24, IN6 = 26, END = 36, IN7 = 38, IN8 = 40):
+    def __init__(self, duty = 90, ENA = 33, IN1 = 35, IN2 = 37, ENB = 11, IN3 = 13, IN4 = 15, ENC = 22, IN5 = 24, IN6 = 26, END = 36, IN7 = 38, IN8 = 40):
 
         self.ENA = ENA
         self.IN1 = IN1
@@ -124,27 +124,24 @@ def handle_client(client_socket):
     try:
         # 接收JSON数据
         json_data = client_socket.recv(1024).decode()
-        # print("接收到的JSON数据:", json_data)
+        print("接收到的JSON数据:", json_data)
 
         # 解析JSON数据
         parsed_data = json.loads(json_data)
 
         # 获取command字段的值
+        global cmd 
         cmd = parsed_data.get('command')
-
-        # 根据command值执行相应的函数
-        # if command == 'forward':
-        #     move_forward()
-        # elif command == 'backward':
-        #     move_backward()
-        # elif command == 'left':
-        #     turn_left()
-        # elif command == 'right':
-        #     turn_right()
-        # else:
-        #     print("未知的命令")
-        # # response = command+"命令执行完成"
-        # # client_socket.send(response.encode())
+        if cmd == "forward":
+            motor.forward()
+        if cmd == "backward":
+            motor.back()
+        if cmd == "left":
+            motor.left()
+        if cmd == "right":
+            motor.right()
+        if cmd == "stop":
+            motor.stop()
     except Exception as e:
         print("处理客户端数据时出现错误:", e)
     finally:
@@ -162,14 +159,15 @@ def start_server():
 
         # 监听连接
         server_socket.listen(1)
-        print("服务器已启动，等待客户端连接...")
-
+        # print("服务器已启动，等待客户端连接...")
+        global motor
+        motor=MotorDriver()
+        # 接受连接
         while True:
-            # 接受连接
             client_socket, client_address = server_socket.accept()
             print("客户端已连接:", client_address)
 
-            # 处理客户端数据
+        # 处理客户端数据
             handle_client(client_socket)
 
     except Exception as e:
@@ -178,26 +176,30 @@ def start_server():
         # 关闭服务器
         server_socket.close()
 
-
-if __name__ == "__main__":
-    motor = MotorDriver()
-    try:
-        while True:
-            # cmd="stop"
-            start_server()
-            if cmd == "forward":
-                motor.forward()
-            if cmd == "backward":
-                motor.back()
-            if cmd == "left":
-                motor.left()
-            if cmd == "right":
-                motor.right()
-            if cmd == "stop":
-                motor.stop()
-            if cmd == "q":
-                motor.up()
-            if cmd == "z":
-                motor.down()
-    except KeyboardInterrupt: #用户输入中断键（Ctrl + C），退出
-        GPIO.cleanup()
+start_server()
+# if __name__ == "__main__":
+#     motor = MotorDriver()
+#     num = 0
+#     try:
+#         while True:
+#             # cmd="stop"
+#             print(num,cmd,"\n")
+#             num += 1
+#             start_server()
+#             print("cmd:",cmd,"\n")
+#             if cmd == "forward":
+#                 motor.forward()
+#             if cmd == "backward":
+#                 motor.back()
+#             if cmd == "left":
+#                 motor.left()
+#             if cmd == "right":
+#                 motor.right()
+#             if cmd == "stop":
+#                 motor.stop()
+#             if cmd == "q":
+#                 motor.up()
+#             if cmd == "z":
+#                 motor.down()
+#     except KeyboardInterrupt: #用户输入中断键（Ctrl + C），退出
+#         GPIO.cleanup()

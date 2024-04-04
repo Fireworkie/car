@@ -1,9 +1,11 @@
 package com.fireworkie.controller;
 
+import jakarta.servlet.ServletContext;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.context.ServletContextAware;
 
 import java.io.*;
 import java.net.Socket;
@@ -14,6 +16,11 @@ public class car {
     private Process pythonProcess;
     String serverAddress="localhost";
     int serverPort= 8001;
+
+//    @Override
+//    public void setServletContext(ServletContext servletContext) {
+//        this.servletContext = servletContext;
+//    }
     @RequestMapping(value = "/runningcar", method = RequestMethod.GET)
     public void RunningCar(@RequestParam("buttonid") String buttonid) {
         try {
@@ -60,10 +67,11 @@ public class car {
 
     @RequestMapping(value = "/startcar", method = RequestMethod.GET)
     public void StartingCar() {
-        String pythonScriptPath = "$CAR/motor.py";
+        String pythonScriptPath = "/home/fireworkie/car/apache-tomcat-10.1.20/webapps/FwkCar/WEB-INF/classes/static/motor.py";
         try {
-            ProcessBuilder processBuilder = new ProcessBuilder("python3", pythonScriptPath);
+            ProcessBuilder processBuilder = new ProcessBuilder("python", pythonScriptPath);
             pythonProcess = processBuilder.start();
+
         } catch (IOException e) {
             e.printStackTrace();
         }

@@ -97,7 +97,6 @@ function stopHoldbutton(buttonid) {
     }
 }
 
-
 // var buttons = document.querySelectorAll('.btn');
 // buttons.forEach(function (button) {
 //     button.addEventListener('contextmenu', function (event) {
