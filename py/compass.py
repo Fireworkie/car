@@ -59,10 +59,5 @@ def main_loop():
         heading = heading + 2 * pai
     # 转换成角度
     heading_angle = int(heading * 180 / pai)
-    print("航向角度为：%d°" % heading_angle)
-    time.sleep(1)
-if __name__ == '__main__':
-    try:
-        main_loop()
-    except KeyboardInterrupt:
-        print("程序结束！")
+    return heading_angle
+

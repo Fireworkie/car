@@ -75,21 +75,39 @@ class MotorDriver():
             GPIO.output(self.IN7, 1)
             GPIO.output(self.IN8, 0)
     def right(self):
-            GPIO.output(self.IN1, 1)
-            GPIO.output(self.IN2, 0)
-            GPIO.output(self.IN3, 0)
-            GPIO.output(self.IN4, 1)
+            GPIO.output(self.IN1, 0)
+            GPIO.output(self.IN2, 1)
+            GPIO.output(self.IN3, 1)
+            GPIO.output(self.IN4, 0)
             GPIO.output(self.IN5, 1)
             GPIO.output(self.IN6, 0)
             GPIO.output(self.IN7, 0)
             GPIO.output(self.IN8, 1)
     def left(self):
-            GPIO.output(self.IN1, 0)
-            GPIO.output(self.IN2, 1)
-            GPIO.output(self.IN3, 1)
-            GPIO.output(self.IN4, 0)
+            GPIO.output(self.IN1, 1)
+            GPIO.output(self.IN2, 0)
+            GPIO.output(self.IN3, 0)
+            GPIO.output(self.IN4, 1)
             GPIO.output(self.IN5, 0)
             GPIO.output(self.IN6, 1)
+            GPIO.output(self.IN7, 1)
+            GPIO.output(self.IN8, 0)
+    def turn_left(self):
+            GPIO.output(self.IN1, 0)
+            GPIO.output(self.IN2, 1)
+            GPIO.output(self.IN3, 0)
+            GPIO.output(self.IN4, 1)
+            GPIO.output(self.IN5, 0)
+            GPIO.output(self.IN6, 1)
+            GPIO.output(self.IN7, 0)
+            GPIO.output(self.IN8, 1)
+    def turn_right(self):
+            GPIO.output(self.IN1, 1)
+            GPIO.output(self.IN2, 0)
+            GPIO.output(self.IN3, 1)
+            GPIO.output(self.IN4, 0)
+            GPIO.output(self.IN5, 1)
+            GPIO.output(self.IN6, 0)
             GPIO.output(self.IN7, 1)
             GPIO.output(self.IN8, 0)
     def stop(self):
@@ -102,7 +120,7 @@ class MotorDriver():
             GPIO.output(self.IN7, 0)
             GPIO.output(self.IN8, 0)
     def up(self):
-        if self.duty <= 200:
+        if self.duty <= 100:
             self.duty += 10
             self.pwm1.ChangeDutyCycle(self.duty)
             self.pwm2.ChangeDutyCycle(self.duty)
@@ -140,8 +158,16 @@ def handle_client(client_socket):
             motor.left()
         if cmd == "right":
             motor.right()
+        if cmd == "turn_left":
+            motor.turn_left()
+        if cmd == "turn_right":
+            motor.turn_right()
         if cmd == "stop":
             motor.stop()
+        if cmd == "speedup":
+            motor.up()
+        if cmd == "speeddown":
+            motor.down()
     except Exception as e:
         print("处理客户端数据时出现错误:", e)
     finally:
@@ -150,6 +176,7 @@ def handle_client(client_socket):
 
 def start_server():
     # 创建Socket对象
+    global flag
     server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
     try:
@@ -177,29 +204,3 @@ def start_server():
         server_socket.close()
 
 start_server()
-# if __name__ == "__main__":
-#     motor = MotorDriver()
-#     num = 0
-#     try:
-#         while True:
-#             # cmd="stop"
-#             print(num,cmd,"\n")
-#             num += 1
-#             start_server()
-#             print("cmd:",cmd,"\n")
-#             if cmd == "forward":
-#                 motor.forward()
-#             if cmd == "backward":
-#                 motor.back()
-#             if cmd == "left":
-#                 motor.left()
-#             if cmd == "right":
-#                 motor.right()
-#             if cmd == "stop":
-#                 motor.stop()
-#             if cmd == "q":
-#                 motor.up()
-#             if cmd == "z":
-#                 motor.down()
-#     except KeyboardInterrupt: #用户输入中断键（Ctrl + C），退出
-#         GPIO.cleanup()

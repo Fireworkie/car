@@ -1,0 +1,10 @@
+body {
+    margin: 0;
+    padding: 0;
+    scroll-behavior: smooth;
+}
+
+.page {
+    height: 100vh;
+    padding-top: 200px;
+} 

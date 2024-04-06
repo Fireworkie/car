@@ -5,11 +5,11 @@
   }
   
   body {
-    display: flex;
+    display: block;
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background: url(bg.png) no-repeat center center fixed;
+    background: url(../static/bg.png) no-repeat center center fixed;
     background-size: cover;
   }
   

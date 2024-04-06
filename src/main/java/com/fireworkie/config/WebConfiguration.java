@@ -1,5 +1,6 @@
 package com.fireworkie.config;
 
+
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
@@ -50,6 +51,9 @@ public class WebConfiguration implements WebMvcConfigurer {
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
         registry.addResourceHandler("/static/**").addResourceLocations("classpath:/static/");
+        registry.addResourceHandler("/css/**").addResourceLocations("classpath:/css/");
+        registry.addResourceHandler("/js/**").addResourceLocations("classpath:/js/");
+        registry.addResourceHandler("/py/**").addResourceLocations("classpath:/py/");
         //配置静态资源的访问路径
     }
 }
