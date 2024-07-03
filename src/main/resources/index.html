@@ -1,189 +1,76 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Scrolling Page</title>
-    <link rel="icon" href="static/steering-wheel.png">
-    <link rel="stylesheet" href="css/title.css">
-    <link rel="stylesheet" href="css/roll.css">
-    <link rel="stylesheet" href="css/sensor.css">
+  <head>
+    <meta charset="UTF-8" />
+    <title>FwkCar</title>
+    <link rel="icon" href="static/steering-wheel.png" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <link href="https://cdn.bootcdn.net/ajax/libs/bootstrap/5.3.1/css/bootstrap.css" rel="stylesheet">
-</head>
-<body>
-<ul id="nav">
-    <li class="slide1"></li>
-    <li class="slide2"></li>
-    <li><a href="#index">MOVE</a></li>
-    <li><a href="#servo">SERVO</a></li>
-    <li><a href="#sensor">SENSOR</a></li>
-    <li><a href="#">Delta</a></li>
-    <li><a href="#">Epsilon</a></li>
-</ul>
-<script src="js/title.js"></script>
-<div class="page" id="index">
-    <div class="col">
-        <div class="row">
-            <div class="col-1"></div>
-            <div class="col-1">
-                <button class="btn btn-light" id="turn_left">
-                    <img src="static/turn_left.svg" alt="1"></img>
-                </button>
-            </div>
-            <div class="col-1">
-                <button class="btn btn-light" id="straight">
-                    <img src="static/up.svg" alt="1"></img>
-                </button>
-            </div>
-            <div class="col-1">
-                <button class="btn btn-light" id="turn_right">
-                    <img src="static/turn_right.svg" alt="1"></img>
-                </button>
-            </div>
-            <div class="col-5"></div>
-            <div class="col-1"></div>
-            <div class="col-1">
-                <button class="btn btn-light" id="speed_up">
-                    <img src="static/speed_up.svg" alt="1"></img>
-                </button>
-            </div>
-            <div class="col-1"></div>
-        </div>
-        <div class="row">
-            <div class="col-1"></div>
-            <div class="col-1">
-                <button class="btn btn-light" id="left">
-                    <img src="static/left.svg" alt="left"></img>
-                </button>
-            </div>
-            <div class="col-1">
-                <button class="btn btn-light" id="stop">
-                    <img src="static/power.svg" alt="stop"></img>
-                </button>
-            </div>
-            <div class="col-1">
-                <button class="btn btn-light" id="right">
-                    <img src="static/right.svg" alt="right"></img>
-                </button>
-            </div>
-            <div class="col-5">
-            </div>
-            <div class="col-1">
-            </div>
-            <div class="col-1">
-            </div>
-            <div class="col-1"></div>
-        </div>
-        <div class="row">
-            <div class="col-1"></div>
-            <div class="col-1">
-
-            </div>
-            <div class="col-1">
-                <button class="btn btn-light" id="backward">
-                    <img src="static/down.svg" alt="down"></img>
-                </button>
-            </div>
-            <div class="col-1">
-
-            </div>
-            <div class="col-5"></div>
-            <div class="col-1"></div>
-            <div class="col-1">
-                <button class="btn btn-light" id="speed_down">
-                    <img src="static/speed_down.svg" alt="down"></img>
-                </button>
-            </div>
-            <div class="col-1"></div>
-        </div>
-    </div>
-    <script src="js/move.js"></script>
-</div>
-
-<div class="page" id="servo">
-    <div class="col">
-        <div class="row">
-            <div class="col-1"></div>
-            <div class="col-1">
-
-            </div>
-            <div class="col-1">
-                <button class="btn btn-light" id="servo_up">
-                    <img src="static/up.svg" alt="1"></img>
-                </button>
-            </div>
-            <div class="col-1">
-
-            </div>
-            <div class="col-5"></div>
-            <div class="col-1"></div>
-            <div class="col-1">
-
-            </div>
-            <div class="col-1"></div>
-        </div>
-        <div class="row">
-            <div class="col-1"></div>
-            <div class="col-1">
-                <button class="btn btn-light" id="servo_left">
-                    <img src="static/left.svg" alt="left"></img>
-                </button>
-            </div>
-            <div class="col-1">
-
-            </div>
-            <div class="col-1">
-                <button class="btn btn-light" id="servo_right">
-                    <img src="static/right.svg" alt="right"></img>
-                </button>
-            </div>
-            <div class="col-5">
-            </div>
-            <div class="col-1">
-            </div>
-            <div class="col-1">
-            </div>
-            <div class="col-1"></div>
-        </div>
-        <div class="row">
-            <div class="col-1"></div>
-            <div class="col-1">
-
-            </div>
-            <div class="col-1">
-                <button class="btn btn-light" id="servo_down">
-                    <img src="static/down.svg" alt="down"></img>
-                </button>
-            </div>
-            <div class="col-1">
-
-            </div>
-            <div class="col-5"></div>
-            <div class="col-1"></div>
-            <div class="col-1">
-
-            </div>
-            <div class="col-1"></div>
-        </div>
-    </div>
-    <script src="js/servo.js"></script>
-</div>
-
-<div class="page" id="sensor">
-    <div>
-        <button class="buttonsensor">
-            Tem
-            <div class="hoverEffect">
-                <div></div>
-            </div>
+    <link
+      rel="stylesheet"
+      href="https://cdn.bootcdn.net/ajax/libs/bootstrap/5.3.1/css/bootstrap.css"
+    />
+    <link rel="stylesheet" href="css/title.css" />
+    <link rel="stylesheet" href="css/camera.css" />
+    <link rel="stylesheet" href="css/control.css" />
+    <link rel="stylesheet" href="css/trace.css" />
+    
+    <!-- <script src="js/servo.js"></script> -->
+  </head>
+  <body>
+    <iframe
+      style="width: 560px; height: 315px"
+      src="http://192.168.168.102:8003/video_feed"
+      frameborder="no"
+      framespacing="0"
+      scrolling="no"
+      allow="autoplay; encrypted-media"
+      id="backgroundiframe"
+    ></iframe>
+    <iframe 
+    id="myiframe" class="menu"
+    ></iframe>
+    <div id="control" class="menu">
+      <div id="turn_left" class="control-button">
+        <button class="btn btn-light control_button " id="turn_left">
+            <img src="static/turn_left.svg" class="control_button_image" alt="1"></img>
         </button>
+      </div>
+      <div id="up" class="control-button">
+        <button class="btn btn-light control_button" id="straight">
+            <img src="static/up.svg" class="control_button_image" alt="1"></img>
+        </button>
+      </div>
+      <div id="turn_right" class="control-button">
+        <button class="btn btn-light control_button" id="turn_right">
+            <img src="static/turn_right.svg" class="control_button_image" alt="1"></img>
+        </button>
+      </div>
+      <div id="left" class="control-button">
+        <button class="btn btn-light control_button" id="left">
+            <img src="static/left.svg" class="control_button_image" alt="left"></img>
+        </button>
+      </div>
+      <div id="power" class="control-button">
+        <button class="btn btn-light control_button" id="stop">
+            <img src="static/power.svg" class="control_button_image" alt="stop"></img>
+        </button>
+      </div>
+      <div id="right" class="control-button">
+        <button class="btn btn-light control_button" id="right">
+            <img src="static/right.svg" class="control_button_image" alt="right"></img>
+        </button>
+      </div>
+      <div id="down" class="control-button">
+        <button class="btn btn-light control_button" id="backward">
+            <img src="static/down.svg" class="control_button_image" alt="down"></img>
+        </button>
+      </div>
     </div>
-    <div>
-        <button class="buttonsensor">distance</button>
+    <div id="trace">
+      <div id="trace-title">Trace</div>
+      <div id="trace-content"></div>
     </div>
-    <div>
-        <button class="buttonsensor">north</button>
-    </div>
-</div>
-</body>
+  </body>
+  <script src="js/frame.js"></script>
+  <script src="js/move.js"></script>
 </html>

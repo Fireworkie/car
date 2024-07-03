@@ -1,0 +1,22 @@
+#trace {
+    position: fixed;
+    top: 50%;
+    left: 86%;
+    height: 315px;
+    width: 150px;
+    background-color: #fff;
+    transform: translate(-50%, -50%);
+    /* z-index: 1; */
+} 
+#trace-title {
+    font-size: 18px;
+    font-weight: bold;
+
+    width: 150px;
+    height: 40px;
+}
+#trace-content {
+    background-color: black;
+    width: 150px;
+    height: 275px;
+}

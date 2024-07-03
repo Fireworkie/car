@@ -18,15 +18,37 @@ public class ServoMotorController {
     public void ServoMove(@RequestParam("buttonid") String buttonid) {
         try {
             Socket socket = new Socket(serverAddress, serverPort);
-            String jsonData = "{\"vx\":\"0\",\"vy\":\"0\"}";
+            String jsonData = "{\"xy\":\"x\",\"data\":\"0\"}";
             if (Objects.equals(buttonid, "servo_up")) {
-                jsonData = "{\"vx\":\"0\",\"vy\":\"1\"}";
+                jsonData = "{\"xy\":\"y\",\"data\":\"-1\"}";
             } else if (Objects.equals(buttonid, "servo_down")) {
-                jsonData = "{\"vx\":\"0\",\"vy\":\"-1\"}";
+                jsonData = "{\"xy\":\"y\",\"data\":\"1\"}";
             } else if (Objects.equals(buttonid, "servo_left")) {
-                jsonData = "{\"vx\":\"1\",\"vy\":\"0\"}";
+                jsonData = "{\"xy\":\"x\",\"data\":\"-1\"}";
             } else if (Objects.equals(buttonid, "servo_right")) {
-                jsonData = "{\"vx\":\"-1\",\"vy\":\"0\"}";
+                jsonData = "{\"xy\":\"x\",\"data\":\"1\"}";
+            }
+            OutputStream outputStream = socket.getOutputStream();
+            outputStream.write(jsonData.getBytes());
+            socket.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    @RequestMapping(value = "/servorelease")
+    public void ServoRelease(@RequestParam("buttonid") String buttonid) {
+        try {
+            Socket socket = new Socket(serverAddress, serverPort);
+            String jsonData = "{\"xy\":\"x\",\"data\":\"0\"}";
+            if (Objects.equals(buttonid, "servo_up")) {
+                jsonData = "{\"xy\":\"y\",\"data\":\"0\"}";
+            } else if (Objects.equals(buttonid, "servo_down")) {
+                jsonData = "{\"xy\":\"y\",\"data\":\"0\"}";
+            } else if (Objects.equals(buttonid, "servo_left")) {
+                jsonData = "{\"xy\":\"x\",\"data\":\"0\"}";
+            } else if (Objects.equals(buttonid, "servo_right")) {
+                jsonData = "{\"xy\":\"x\",\"data\":\"0\"}";
             }
             OutputStream outputStream = socket.getOutputStream();
             outputStream.write(jsonData.getBytes());
@@ -40,7 +62,7 @@ public class ServoMotorController {
     public void ServoStop() {
         try {
             Socket socket = new Socket(serverAddress, serverPort);
-            String jsonData = "{\"vx\":\"0\",\"vy\":\"0\"}";
+            String jsonData = "{\"xy\":\"stop\",\"data\":\"0\"}";
             OutputStream outputStream = socket.getOutputStream();
             outputStream.write(jsonData.getBytes());
             socket.close();

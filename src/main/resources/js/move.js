@@ -107,7 +107,7 @@ function stopHoldbutton(buttonid) {
 }
 
 
-var buttons = document.querySelectorAll('.btn');
+var buttons = document.querySelectorAll('menu');
 buttons.forEach(function (button) {
     button.addEventListener('contextmenu', function (event) {
         event.preventDefault(); // 阻止默认的上下文菜单行为
