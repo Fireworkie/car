@@ -9,6 +9,7 @@ face_cascade = cv2.CascadeClassifier('cascades/haarcascade_frontalface_default.x
 cap = cv2.VideoCapture(0)
 
 def generate_frames():
+    signal.signal(signal.SIGINT, signal_handler)
     while True:
         # 读取帧
         ret, frame = cap.read()
@@ -19,14 +20,23 @@ def generate_frames():
         frame = cv2.resize(frame, None, fx=0.5, fy=0.5, interpolation=cv2.INTER_AREA)
         # 在这里进行帧处理，例如图像识别、滤镜等
         gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
-        face_rects = face_cascade.detectMultiScale(gray, 1.1, minNeighbors=5)
+        face_rects = face_cascade.detectMultiScale(gray, 1.3, minNeighbors=4, minSize=(75,75))
 
-        for (x, y, w, h) in face_rects:
+        for i, (x, y, w, h) in enumerate(face_rects):
             vx=x*2
             vy=y*2
             vw=w*2
             vh=h*2
             cv2.rectangle(frame_show, (vx, vy), (vx+vw, vy+vh), (255, 0, 0), 2)
+
+            roi = cv2.resize(gray[y:y+h, x:x+w], (92, 112))
+            id, confidence = recognizer.predict(roi)
+            id_str = str(id)
+            face_list[i] = (id_str[0], x, y, w, h)
+
+            confidence = "{0}%".format(round(100 - confidence))
+            cv2.putText(frame_show, "person: " + str(id_str[0]), (vx+5, vy-5), cv2.FONT_HERSHEY_SIMPLEX, 1, (255, 255, 255), 2)
+            cv2.putText(frame_show, "Confidence: " + str(confidence), (vx+5, vy+h-5), cv2.FONT_HERSHEY_SIMPLEX, 1, (255, 255, 255), 2)
 
         # 将处理后的帧转换为 JPEG 格式
         ret, buffer = cv2.imencode('.jpg', frame_show)

@@ -27,20 +27,26 @@ vy = 0
 lock = threading.Lock()
 
 # 伺服电机控制线程
-def motor_control_thread():
+def motor_controlX_thread():
     global vx
-    global vy
     while True:
         with lock:
             if vx==1:
                 servo_12.angle=min(servo_12.angle+1,180)
             if vx==-1:
                 servo_12.angle=max(servo_12.angle-1,0)
+        time.sleep(0.01)
+
+def motor_controlY_thread():
+    global vy
+    while True:
+        with lock:
             if vy==1:
                 servo_15.angle=min(servo_15.angle+1,135)
             if vy==-1:
                 servo_15.angle=max(servo_15.angle-1,65)
         time.sleep(0.01)
+
 
 # 监听端口线程
 def handle_client(client_socket):
@@ -49,11 +55,18 @@ def handle_client(client_socket):
         json_data = client_socket.recv(1024)
         print("接收到客户端数据:", json_data.decode())
         parsed_data = json.loads(json_data)
-        with lock:
-            global vx
-            global vy
-            vx=int(parsed_data.get("vx"))
-            vy=int(parsed_data.get("vy"))
+        global vx, vy
+        if(parsed_data.get("xy")=="x"):
+            with lock:
+                vx=int(parsed_data.get("data"))
+
+        if(parsed_data.get("xy")=="y"):
+            with lock:
+                vy=int(parsed_data.get("data"))
+        if(parsed_data.get("xy")=="stop"):
+            with lock:
+                vx=0
+                vy=0
     except Exception as e:
         print("解析客户端数据时出现错误:", e)
     finally:
@@ -83,7 +96,9 @@ def start_server():
         server_socket.close()
 
 # 创建并启动线程
-motor_thread = threading.Thread(target=motor_control_thread)
+motorX_thread = threading.Thread(target=motor_controlX_thread)
+motorY_thread = threading.Thread(target=motor_controlY_thread)
 listen_thread = threading.Thread(target=start_server)
-motor_thread.start()
+motorX_thread.start()
+motorY_thread.start()
 listen_thread.start()
