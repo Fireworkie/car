@@ -4,19 +4,48 @@
     left: 86%;
     height: 315px;
     width: 150px;
-    background-color: #fff;
+    /* background-color: #fff; */
     transform: translate(-50%, -50%);
     /* z-index: 1; */
 } 
 #trace-title {
     font-size: 18px;
-    font-weight: bold;
-
+    /* font-weight: bold; */
+    /* flex-wrap: nowrap; */
+    display: flex;
+    /* align-items: center; */
     width: 150px;
     height: 40px;
 }
 #trace-content {
-    background-color: black;
+    /* background-color: black; */
     width: 150px;
     height: 275px;
+}
+#trace-text-area{
+    /* background-color: aqua; */
+    width: 100px;
+    height: 40px;
+    /* display: flex; */
+    /* align-items: center; */
+}
+#trace-button-area{
+    /* background-color: black; */
+    width: 50px;
+    height: 40px;
+}
+
+#trace-id{
+    width: 100px;
+    height: 30px;
+    font-size:small;
+    position: relative;
+    top: 5px;
+}
+#trace-button{
+    width: 40px;
+    height: 30px;
+    font-size: xx-small;
+    position: relative;
+    top: 5px;
 }

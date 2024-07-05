@@ -10,31 +10,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fead5cd9-8311-4a4e-9901-ff0a5dcd06fb" name="更改" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/fireworkie/entity/car.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/application.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/temp/servo.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/code/temp_fjy/camera3.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/code/temp_fjy/face12.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/fireworkie/controller/TraceController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/shutdown.sh" beforeDir="false" afterPath="$PROJECT_DIR$/bin/shutdown.sh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/startup.sh" beforeDir="false" afterPath="$PROJECT_DIR$/bin/startup.sh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/py/dht11.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/py/servo.py" beforeDir="false" afterPath="$PROJECT_DIR$/py/servo.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/python/CarTerminal.py" beforeDir="false" afterPath="$PROJECT_DIR$/temp/CarTerminal.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/python/compass.py" beforeDir="false" afterPath="$PROJECT_DIR$/temp/compass.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/python/contral_motor.py" beforeDir="false" afterPath="$PROJECT_DIR$/temp/contral_motor.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/python/control_motor2.py" beforeDir="false" afterPath="$PROJECT_DIR$/temp/control_motor2.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/python/hc_sr04.py" beforeDir="false" afterPath="$PROJECT_DIR$/temp/hc_sr04.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/python/motor.py" beforeDir="false" afterPath="$PROJECT_DIR$/temp/motor.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/python/motor1.py" beforeDir="false" afterPath="$PROJECT_DIR$/temp/motor1.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/python/north.py" beforeDir="false" afterPath="$PROJECT_DIR$/temp/north.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/python/servo.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/python/test.py" beforeDir="false" afterPath="$PROJECT_DIR$/temp/test.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/python/time.py" beforeDir="false" afterPath="$PROJECT_DIR$/temp/time.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/fireworkie/controller/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fireworkie/controller/MainController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/fireworkie/controller/ServoMotorController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/fireworkie/controller/ServoMotorController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/css/title.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/css/title.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/temp_fjy/face11.py" beforeDir="false" afterPath="$PROJECT_DIR$/code/temp_fjy/face11.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/temp_fjy/gesture3.py" beforeDir="false" afterPath="$PROJECT_DIR$/code/temp_fjy/gesture3.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/voice/compass.py" beforeDir="false" afterPath="$PROJECT_DIR$/code/voice/compass.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/voice/dht11.py" beforeDir="false" afterPath="$PROJECT_DIR$/code/voice/dht11.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/voice/north.py" beforeDir="false" afterPath="$PROJECT_DIR$/code/voice/north.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/voice/obstance.py" beforeDir="false" afterPath="$PROJECT_DIR$/code/voice/obstance.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/voice/voice_control.py" beforeDir="false" afterPath="$PROJECT_DIR$/code/voice/voice_control.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/css/control.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/css/control.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/css/trace.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/css/trace.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/js/move.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/js/move.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -75,31 +65,31 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "DefaultHtmlFileTemplate": "HTML File",
-    "Maven.car [clean].executor": "Run",
-    "Maven.car [package].executor": "Run",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "Tomcat 服务器.Tomcat 10.1.19.executor": "Run",
-    "git-widget-placeholder": "master",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "D:/Desktop/code/car/src/main/java/com/fireworkie/controller",
-    "list.type.of.created.stylesheet": "CSS",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "模块",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.35977012",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;Maven.car [clean].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.car [package].executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;Tomcat 服务器.Tomcat 10.1.19.executor&quot;: &quot;Run&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/Desktop/code/car/src/main/java/com/fireworkie/controller&quot;,
+    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;模块&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.35977012&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\Desktop\code\car\src\main\java\com\fireworkie\controller" />
@@ -282,6 +272,10 @@
       <workItem from="1719906961466" duration="175000" />
       <workItem from="1719915847665" duration="680000" />
       <workItem from="1719917056412" duration="215000" />
+      <workItem from="1720004906041" duration="3201000" />
+      <workItem from="1720076442729" duration="2563000" />
+      <workItem from="1720168784166" duration="42000" />
+      <workItem from="1720170923402" duration="140000" />
     </task>
     <servers />
   </component>
